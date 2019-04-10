@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const Memcached = require('memcached');
-const memcached = new Memcached('localhost:11211');
+const memcached = new Memcached('130.245.170.206:11211');
 const PORT = process.env.PORT || 3000;
 const mysql  = require('mysql');
 
 const connection = mysql.createConnection({
-  host     : 'localhost',
+  host     : '130.245.170.206',
   user     : 'kevin',
   password : 'purolo12',
   database: 'hw7',
@@ -20,7 +20,9 @@ function checkGS(players){
     for(var i = 1 ; i < players.length;i++){
         if(players[i].GS === gs){
             equalGS = true;
-            break;
+        }
+        else if(players[i].GS > gs || players[i].GS < gs){
+            equalGS = false;
         }
     }
 
