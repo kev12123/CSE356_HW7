@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const Memcached = require('memcached');
-const memcached = new Memcached('130.245.170.206:11211');
+const memcached = new Memcached('localhost:11211');
 const PORT = process.env.PORT || 3000;
 const mysql  = require('mysql');
 
 const connection = mysql.createConnection({
-  host     : '130.245.170.206',
+  host     : 'localhost',
   user     : 'kevin',
   password : 'purolo12',
   database: 'hw7',
